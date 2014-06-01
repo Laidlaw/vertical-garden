@@ -15,7 +15,7 @@ gulp.task('develop', ['watch', 'browser-sync']);
 
 gulp.task('styles', function () {
     'use strict';
-    gulp.src('sass/app.scss')
+    gulp.src('sass/custom.scss')
         .pipe(plumber())
         .pipe(sass({
             //debugInfo: true,
