@@ -1,12 +1,12 @@
  Starting with:
 
-*gulp
-*docssa
-*susy
-*fittext
-*waypoints
-*metaquery
-*webshim
+-gulp
+-docssa
+-susy
+-fittext
+-waypoints
+-metaquery
+-webshim
 
 ##History
 
