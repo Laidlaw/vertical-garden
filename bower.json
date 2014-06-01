@@ -1,0 +1,26 @@
+{
+  "name": "vertical garden",
+  "version": "0.0.0",
+  "authors": [
+    "Forrest Galloway <f.galloway@gmail.com>",
+    "Alan Laidlaw <alanlaidlaw@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "breakpoint-sass": "~2.4.2",
+    "fittext": "*",
+    "modernizr": "~2.7.2",
+    "metaquery": "~1.1.1",
+    "normalize-scss": "~3.0.1",
+    "typeahead.js": "~0.10.2",
+    "jquery-waypoints": "~2.0.5"
+  }
+}
