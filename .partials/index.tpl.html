@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+
+        <meta charset="utf-8">
+        <title>DoCSSa – Sass based CSS architecture and methodology</title>
+
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <meta name="description"
+              content="DoCSSa {dok~sa} — Deferred Object CSS Architecture — Sass based CSS architecture and methodology for large & long lived sites.">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+
+        <link rel="stylesheet" href="css/custom.css">
+        <script src="bower_components/modernizr/modernizr.js"></script>
+
+    </head>
+
+    <!--[if IE 7]>
+    <body class="lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>
+    <body class="lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <body> <!--<![endif]-->
+
+
+        <div class="mainContainer">
+
+            <header class="mainHeader">
+                <h1 class="mainTitle">
+                    DoCSSa {dok~sa}
+                </h1>
+
+                <h2 class="mainSubtitle">Sass based CSS architecture and methodology</h2>
+
+
+            </header>
+
+            @@include('_nav.html')
+            <button class="navOpener"></button>
+
+            <article class="mainContent">
+
+                <hr class="articleSeparator">
+
+                @@include('_about.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_fileStructure.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_components.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_namingConventions.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_responsive.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_gettingStarted.html')
+
+                <hr class="articleSeparator">
+
+                @@include('_contributing.html')
+
+            </article>
+
+            @@include('_footer.html')
+
+        </div>
+
+        <button class="goTop"></button>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/main.js" async></script>
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-50620385-1', 'docssa.info');
+            ga('send', 'pageview');
+
+        </script>
+
+    </body>
+</html>

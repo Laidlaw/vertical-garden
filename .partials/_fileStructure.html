@@ -1,0 +1,487 @@
+<section class="mainSection" id="fileStructure">
+
+    <header class="mainSection_header">
+        <h1 class="mainSection_title">File Structure</h1>
+    </header>
+
+    <div class="mainSection_body">
+
+        <h2 class="mainSection_subtitle">Basics</h2>
+
+        <p>In DoCSSa, the file system is divided in four main directories in the sass folder :</p>
+
+        <ul class="firstOrderList">
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_base">base</a>
+                </div>
+            </li>
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_components">components</a>
+                </div>
+            </li>
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_specifics">specifics</a>
+                </div>
+            </li>
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_vendor">vendor</a>
+                </div>
+            </li>
+        </ul>
+
+        <p>Each base folder has a specific role, and CSS rules for a particular set of elements will end up in one of
+            these directories, according to their nature.<br>
+            The structure has a single point of entry, which we'll call <em>custom.scss</em>.
+            This file is located at the root of the sass folder.</p>
+
+        <p class="note">In most cases, it will be the only file with no
+            underscore(_) prefix : as you may know, the .scss to .css convertion process in Sass only converts
+            files that don't have an underscore in front of them. Most of the files in our structure being imported
+            by other files, they don't need to be rendered directly.<br>
+            Only components may be rendered separately, in order to be able to dynamically load them if needed,
+            but we'll get back to it.
+        </p>
+
+        <p>The main .scss file will look something like this :</p>
+
+        <div class="sample">
+            <ul class="sampleHeader">
+                <li class="sampleHeader_item _is_current">
+                    <span class="sampleHeader_link">// custom.scss</span>
+                </li>
+            </ul>
+
+<pre class="codeSample">
+@charset "UTF-8";
+
+/*!
+========== INIT
+*/
+@import 'vendor/_normalize';
+
+
+/*!
+========== BASE
+*/
+// variables, fonts, mixins, helpers... common styles used across the entire site
+@import 'base/__base';
+
+
+/*!
+========== COMPONENTS
+*/
+// reusable components
+@import 'components/__components';
+
+
+/*!
+========== SPECIFICS
+*/
+// declarations specific to the project, organized according to the items/sections represented
+@import 'specifics/__specifics';
+</pre>
+        </div>
+
+            <p>As you can see, it mostly acts as an aggregator for other files, which themselves import some
+                other scss files, and so on. With a well thought organization, this construct can prove very powerful.</p>
+
+            <p class="note">On a sidenote, remember that Sass is only a CSS precompiler, so you'll end up with only one .css file
+                with all the goodies, not a bunch of HTTP requests!</p>
+
+            <p>Here is an overview of what a basic file system might look like :</p>
+
+            <samp class="sampleTitle">// file system</samp>
+<pre class="codeSample">
+sass
+¦   custom.scss
+¦
++---base
+¦   ¦   __base.scss
+¦   ¦   _config.scss
+¦   ¦
+¦   +---project
+¦   ¦       __project.scss
+¦   ¦       _fonts.scss
+¦   ¦       _globals.scss
+¦   ¦       _helpers.scss
+¦   ¦       _variables.scss
+¦   ¦
+¦   +---utils
+¦           __utils.scss
+¦           _helpers.scss
+¦           _mixins.scss
+¦           _system.scss
+¦
++---components
+¦   ¦   __components.scss
+¦   ¦
+¦   +---button
+¦   ¦       _button.scss
+¦   ¦
+¦   +---roundedButton
+¦   ¦       _roundedButton.scss
+¦   ¦
+¦   +---tabs
+¦   ¦       _tabs.scss
+¦   ¦       tabs.standalone.scss
+¦   ¦       tabs.standalone.html
+¦   ¦
+¦   +---verticalMenu
+¦           _verticalMenu.scss
+¦
++---specifics
+¦   ¦   __specifics.scss
+¦   ¦   _main.scss
+|   |   _inbox.scss
+¦   ¦
+¦   +---popins
+¦           __popins.scss
+¦           _popin-congratulations.scss
+¦           _popin-loginForm.scss
+¦
++---vendor
+_normalize.scss
+</pre>
+
+
+        <h2 class="mainSection_subtitle" id="fileStructure_base">Base folder</h2>
+
+        <p>The "base" folder contains rules that are global to the site. It is divided in two parts : </p>
+        <ul class="firstOrderList">
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_base_utils">utils</a>
+                </div>
+            </li>
+            <li class="firstOrderList_item">
+                <div class="firstOrderList_item_content">
+                    <a class="navLink" href="#fileStructure_base_project">project</a>
+                </div>
+            </li>
+        </ul>
+        <p class="note">Both summary files (__project.scss and __utils.scss) for those folders import the <em>base/_config.scss</em> file which contains
+            configuration information required by both the system and the project. If you're wondering why we don't
+            import the config from the __base.scss file, you're asking yourself the right questions! We had to
+            stray a bit from our convention about sass files organization on that one in order to ease the standalone components generation.
+            We assumed it was better to import the file twice in "base" than once in "base" and then once for each
+            component declaration.<br>
+            As of today, this file contains $baseFontSize which is required for the
+            "remIt" mixin, and $breakpoints which is required for cross-media placeholders.</p>
+        <p>
+            <strong id="fileStructure_base_utils">Utils</strong> contains only things that don't need to change
+            from a project to another. As of today,
+            it consists of <em>_system</em>, <em>_helpers</em>, and <em>_mixins</em>.
+        </p>
+        <ul class="secondaryList">
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><em>_system</em> is a special file the contains tools used by DoCSSa.<br>
+                        Most notably, it contains a <em>define</em> mixin used to allow inclusion of placeholders
+                        from several places without generating duplicate content, and <em>_add()/_use()</em> mixins for
+                      handling cross media placeholders.
+                    </p>
+
+                    <p class="note">To have a
+                        specific
+                        component's CSS file rendered, the component's .scss file needs to import the placeholders
+                        contained in <em>_helpers.scss</em>.
+                        But when
+                        generating the whole project's CSS, we don't want that multiple import to screw up the
+                        output.
+                        <em>define</em> is a simple mixin taking advantage of the <em>@content</em> instruction Sass
+                        provides, which
+                        allows us in the end to have a clean .css file even though we import our placeholders file several
+                        times
+                        from various places. Dig in the provided example structure if you want to find out how
+                        this works.
+                    </p>
+
+                    <p class="note">As you'll notice, DoCSSa makes heavy use of placeholders. By default, Sass
+                        doesn't like it when you try to use a placeholder defined on the root from within a
+                        media query and will throw nasty errors at you for that. Thankfully, some nice folks have
+                        found a way around it, and we've implemented it in DoCSSa. More on that in the "Responsive"
+                        section.
+                    </p>
+                </div>
+            </li>
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><strong>_helpers</strong> are Sass placeholders that represent a simple
+                        CSS functionnality that can be implemented by many classes. For example, %clearfix can be extended
+                        by any class that would need to contain floats.
+                    </p>
+
+                    <p class="note">Placeholders have been a great addition to Sass. They are the magic that allows us to have
+                        an
+                        object
+                        oriented
+                        architecture without polluting the markup. For those not familiar with placeholders,
+                        they work a
+                        bit like mixins, but instead of placing a set of CSS rules within the selector
+                        implementing
+                        them, they add that selector to the list of selectors on which to apply a set of CSS rules.<br>
+                        This may not seem as much, but you'll see some of the awesome stuff we can do with
+                        it in the
+                        components section.</p>
+                </div>
+            </li>
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><strong>_mixins</strong> have quite the same purpose as placeholders,
+                        but they do require parameters.
+                        Mixins are
+                        particularily useful for handling vendor prefixes and fallbacks. For example, DoCSSa comes with
+                        a
+                        linear-gradient mixin that compiles to all required vendor prefixes (and only those required!)
+                        and generates a
+                        fallback color from the input values for browsers that don't support linear-gradient at all.
+                        DoCSSa
+                        recommends using Modernizr for feature detection and progressive enhancement, and the provided
+                        mixins
+                        implementing CSS3 features rely on it by default for their output, even though it can be
+                        disabled at include time.<br>
+                    </p>
+
+                    <p class="note">Mixins, like placeholders, can accumulate and enrich your library
+                        with no cost, as they are only compiled when used.<br>
+                        Mixins are a great way to avoid repetition when coding, but they end up in code
+                        repetition
+                        in the css output. That's why we only use them when they have to output something that
+                        needs to be configured.
+                        For generic code that can be reused as-is, we use placeholder helpers instead.</p>
+
+                    <aside class="exampleNote">
+                        <p>Here's what a mixin may look like in the <em>utils/_mixins</em> file :</p>
+
+                        <samp class="sampleTitle">// base/utils/_mixins.scss</samp>
+<pre class="codeSample">
+@mixin linear-gradient($from, $to, $fallback: '', $useModernizr: true) {
+
+$prefixes: getPrefixes(cssgradients, $useModernizr);
+
+#{map-get($prefixes, no)} &amp; {
+@if $fallback != '' {
+background-color: $fallback;
+} @else {
+background-color: mix($from, $to);
+}
+}
+
+#{map-get($prefixes, yes)} &amp; {
+background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)); // Saf4+, Chrome
+background-image: -webkit-linear-gradient(top, $from, $to); // Chrome 10+, Saf5.1+, iOS 5+
+background-image: -moz-linear-gradient(top, $from, $to); // FF3.6+
+background-image: -o-linear-gradient(top, $from, $to); // Opera 11.10+
+background-image: linear-gradient(to bottom, $from, $to);
+}
+
+}
+</pre>
+
+                            <p>And an example of placeholder in the <em>utils/_helpers</em> file :</p>
+
+                            <samp class="sampleTitle">// base/utils/_helpers.scss</samp>
+
+<pre class="codeSample">
+@include _add(clearfix) {
+&amp;:before,
+&amp;:after {
+content: " ";
+display: table;
+}
+&amp;:after {
+clear: both;
+}
+*zoom: 1;
+}
+</pre>
+
+                        <p class="note">
+                            Note that we use <em>@include _add(clearfix)</em> here instead of <em>%clearfix</em>. This
+                            is a way to allow cross-media placeholders. More on that in the "responsive" section.
+                        </p>
+                    </aside>
+                </div>
+            </li>
+        </ul>
+
+
+        <p>
+            <strong id="fileStructure_base_project">Project</strong> has quite the same role as the <em>utils</em>
+            folder, but it is project
+            oriented while <em>utils</em> is intended to be kept and grow from a project to the next. As of today, it
+            consists of <em>_variables</em>, <em>_fonts</em>, <em>_globals</em>, and <em>_helpers</em>.
+        </p>
+
+        <ul class="secondaryList">
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><strong>_variables</strong> is were all site wide variables reside. Default values, color theme,
+                        configuration variables go into this file.
+                    </p>
+
+                    <p>Here's what the <em>_variables.scss</em> file might look like :</p>
+
+                    <samp class="sampleTitle">// _variables.scss</samp>
+
+<pre class="codeSample">
+/* _____ VARIABLES _____ */
+
+// Generic
+// ==========================================================================
+
+$default-borderRadius: 4;
+$containerWidth: 760;
+$left-nav-width: 200;
+
+$nav-variant: 'base';
+
+
+// Colors
+// ==========================================================================
+
+$color-default-light:       #fff;
+$color-default-dark:        #333;
+$color-default-darker:      #000;
+
+$color-main:                #449888;
+$color-main-light:          #5cbcaa;
+$color-main-lighter:        #a8d5cd;
+
+$color-secondary:           #ee746f;
+
+$color-alt:                 #f1ede4;
+$color-alt-dark:            #c2c0bc;
+$color-alt-light:           #f8f5ec;
+
+$color-alt2:                #637c84;
+</pre>
+
+                </div>
+            </li>
+
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p>The <strong>_fonts</strong> file is used —you guessed it— for the font-families declaration.<br>
+                        In our implementation, we use a font mixin that is in charge of generating a bulletproof syntax
+                        according to the passed configuration for each needed font, according to a file naming convention.</p>
+
+                    <p class="note"> But where do we have to place the font files themselves, you may be wondering? Well, as
+                        this Sass structure is
+                        intended to be compiled to CSS in a different directory, the fonts will be in that directory.
+                        Typically, you'll have the <em>custom.scss</em> file in a "sass" folder" compiled to a
+                        <em>custom.css</em> in a
+                        "css" or "styles" folder. The font files will have to be there (preferably in a "fonts"
+                        subfolder in order to stay nice and tidy).<br>
+                        Same goes for all the image files you may be referring to in your stylesheets.
+                    </p>
+                </div>
+            </li>
+
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><strong>_globals</strong> contains rules that are global
+                        to the site. Things like box-sizing type, html font size, body background color,
+                        headings and link defaults, etc. are defined here. It is also be a good place to store
+                        your layout definition if it is used for all pages on the site.
+                    </p>
+                </div>
+            </li>
+
+            <li class="secondaryList_item">
+                <div class="secondaryList_item_content">
+                    <p><strong>_helpers</strong> contains placeholders helper that are specific to your current
+                        project. If you have a reusable visual component that wouldn't make sense in another project
+                        and can be applied to your selector through a simple @extend, this is where it belongs.
+                        For more advanced reusable components, the "components" section is what you're looking for.
+                    </p>
+                </div>
+            </li>
+        </ul>
+
+        <h2 class="mainSection_subtitle" id="fileStructure_components">Components folder</h2>
+
+        <p>
+            The "components" folder is where your complex ui-components are located. It plays quite the same
+            role as the <em>_helpers</em> file in the base/project folder, but in a way more evolved way. You can
+            think of it as configurable helpers on steroids.<br>
+            Components are so important in DoCSSa that we needed a dedicated section to explain all there is to know about them,
+            so we won't say much more about them here.
+        </p>
+
+        <h2 class="mainSection_subtitle" id="fileStructure_specifics">Specifics folder</h2>
+
+        <p>The "specifics" folder is your common playground. It is where you'll place the rules that don't belong
+            in the "base" or "components" folders. Until you become fluent with DoCSSa's organization rules, what will
+            eventually
+            end up in a component will probably exist in here first.</p>
+
+        <p>Specifics is the closest thing to your usual CSS file, except for it's organization. Everything in there
+            is split and dispatched in files and folders according to what they apply to.</p>
+
+        <p>By convention, we're using two underscores(__) as a prefix for files that act (mostly) as an import
+            summary,
+            and only one underscore(_) for files which are content only. This usually evolves with the
+            project: you
+            begin with an underscore prefixed file, you add another one, and at some point you stop calling them
+            directly from the main .scss file and you reorganize them in a folder with a summary file. </p>
+        <aside class="exampleNote">
+            <p>For example you might begin writing some rules in specifics/__specifics.scss, and as it grows
+                realize that
+                you have a bunch of rules all related to the popin windows. You'd then move those rules in a
+                _popin.scss
+                file and import that file from __specifics.scss.</p>
+
+            <p>
+                After a while, you'll notice that you added
+                some rules for a
+                bunch of specific popins on your site. That would be a good time to create a "popins" folder and
+                split
+                the specific popin rules to different files in that folder (say, popins/_popin-loginForm.scss
+                and
+                popins/_popin-congratulations.scss).<br>
+                Instead of importing _popins.scss from __specifics.scss, you'd then import popins/__popins.scss
+                instead,
+                and let this summary file import all the specific popins required for your project.</p>
+
+            <p>This allow you to have all your feature related files in the same folder, and one summary
+                specific to that kind
+                of feature which can import or leave out the files in its section as easily as commenting out a
+                line. If
+                at some point you realize that you don't want to use the congratulations popin anymore, all you
+                have to do
+                is to comment out the line importing its definition file (_popin-congratulations.scss) from the
+                popins summary
+                (popins/__popins.scss).</p>
+        </aside>
+
+        <p class="note">DoCSSa encourages you to keep your definitions tidy and reorganize in subfolders as soon as it makes
+            sense.<br>
+            No file should ever be big enough that you can't scroll through it in a few mousewheel movements
+            max.</p>
+
+        <p>Before everyone in your team is familiar with DoCSSa, it can be helpful for occasional contributors
+            wondering where to place their code to have a dedicated file. In such case, we recommend using
+            a <em>_inbox.scss</em> file in the "specifics" folder and ask them to commit their work in there.<br>
+            It shall be emptied regularly by a more experienced DoCSSa user, who would move the CSS rules
+            defined in there to the correct place in the architecture.
+        </p>
+
+
+        <h2 class="mainSection_subtitle" id="fileStructure_vendor">Vendor folder</h2>
+
+        <p>The <em>vendor</em> folder is where we place CSS files that come from third parties and can be updated at
+            any time. As the .scss syntax is CSS compatible, all we have to do is to rename the .css file to
+            .scss, in order for it to be integrated to the .css compilation instead of referenced by the CSS
+            file as a classic @import.</p>
+
+        <p class="note"><em>_normalize.scss</em> is an excellent candidate for this section, along with more project specific
+            third
+            party CSS.</p>
+    </div>
+
+</section>

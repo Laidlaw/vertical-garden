@@ -1,0 +1,487 @@
+<section class="mainSection" id="components">
+
+    <header class="mainSection_header">
+        <h1 class="mainSection_title">Components</h1>
+    </header>
+
+    <div class="mainSection_body">
+        <h2 class="mainSection_subtitle">Introduction</h2>
+        <p>Components are an important part of DoCSSa. They are intended to be as reusable and
+            extendable as possible. Ideally, they should be reusable in a totally different project without
+            writing any additionnal code. They are, along with the placeholder helpers, the "Deferred Object" part of DoCCSa,
+            thanks to the power of
+            placeholders and mixins.
+        </p>
+        <p>We say the Object is Deferred because its core resides in an abstraction (the placeholders)
+            instead of being tied to a classname. DoCSSa's components are class agnostic. They are made of placeholders
+            and mixins. The placeholders
+            define a component, and a component mixin is in charge of binding those placeholders to one
+            or several HTML class(es). Thanks to the BEM naming convention, the class passed to the component mixin can be
+            a prefix for other classes onto which to bind placeholder functionalities.
+        </p>
+        <p>This allows for components to be instantiated on any class, and to be extendable if needed.
+        </p>
+        <p>As the component is not tied to a particular class, you can use it on whatever class you want, whenever you want,
+            from the CSS side. That means that you can (and should) keep a semantic meaning to your HTML classes, and change
+            their look and feel without having to modify the markup. When your markup comes from a RTE, this is a huge gain.
+            You can change the styling without asking the contributors to change their habits, and you can
+            affect everything already written without having to make search&amp;replace throughout a database or without
+            having a "red" class helper mean the color is going to be purple!
+        </p>
+        <p class="exampleNote">
+            For example, instead of having a link with the "button red"
+            classes, you can give it a "navTrigger" class and bind a button component with a red skin to it. You could
+            also use the same component on a "submitTrigger" class so that both look the same. When time comes
+            to have a different look for your submits, all you have to do is bind the submitTrigger to another component
+            and you're done, without affecting the navTriggers and without touching the markup.
+        </p>
+        <p>If you need a component
+            with a slightly different behaviour than the original one, you have two options : you can pass a parameter to
+            the mixin to change the binding (or rules), or you can create a subComponent that will import the component's
+            definition to get access to its placeholders, and make a new mixin that will handle the altered implementation.
+        </p>
+        <div class="exampleNote">
+            <p>For example, your component can bind the %exampleAltState placeholder to #{$selector}:hover by default,
+                but bind it to the #{$selector}_#{$hover} class for special cases.<br>
+                Here is what it could look like :
+            </p>
+
+            <samp class="sampleTitle">// component example</samp>
+<pre class="codeSample">
+// map the placeholders content to some selectors through a mixin
+@mixin example($selector: '.example', $hover: ':hover', $param2: '', $defaultSkin: true) {
+
+#{$selector} {
+@extend %example;
+}
+
+#{$selector}_inner {
+@extend %exampleInner;
+}
+
+@if $hover == ':hover' {
+#{$selector}:hover {
+@extend %exampleAltState;
+}
+} @else {
+#{$selector}_#{$hover} {
+@extend %exampleAltState;
+}
+}
+
+@if $defaultSkin != false {
+@include example-skin-default($selector, $hover, $param2);
+}
+
+}
+</pre>
+
+        </div>
+        <p>In order to fulfill their role, components need to respect those two guidelines :</p>
+        <ul>
+            <li><p>A component should be <strong>self contained</strong>.</p>
+
+                <p class="note">This means that what is outside of the visual boundaries of the
+                    component doesn't belong in the component definition. Typically, things like margins or positioning
+                    should reside in the "specifics" folder, not in the component. This is required for your component to
+                    live in any possible context.</p>
+            </li>
+            <li><p><strong>Structure(layout) should be dissociated from skin(paint)</strong>.</p>
+
+                <p class="note">For example, background color, images, text colors, etc. should go into the skin section of the
+                    component,
+                    not in its core definition. That way, you can create additional styles for them without
+                    altering their expected behaviour as a component, and choose what visual style you want when binding
+                    the component to a classname.</p>
+            </li>
+        </ul>
+        <p>Of course, it's up to you to compose with those precepts and adapt them to your constraints, but
+            respecting them results in a clean separation of concerns and genuinely reusable components, which is much
+            likely to make your dev faster further down the road, and that
+            is what DoCSSa is aiming for.
+        </p>
+        <p class="note">
+            When beginning with DoCSSa, it's easy to think as everything as components, as they are so powerful.
+            You must be careful about that, and think about what needs to be a component and what doesn't.<br>
+            If you component-ize every set of rules, you risk spending more time building the same thing as you
+            would have in the "specifics" folder without enough additional value for it to be worth it.
+            Try to begin with small components to get the hang of it, and adjust your use little by little.<br>
+            You can begin everything the way you are used to in the "specifics" folder, organize it
+            in imported files and subfolders the DoCSSa way, and only extract a functionality to a component
+            when you feel that it would help you.<br>
+            DoCSSa only gives you tools to play with, what you implement and how you do things with it is up to you.
+            That's what we believe a "framework" should be anyway.
+        </p>
+        <h2 class="mainSection_subtitle">Description</h2>
+        <p>When looking at a component folder, you may see three files, and eventually some subfolders.
+            Let's take a <em>Tabs</em> component as an example, as probably everyone has already seen a tabbed
+            navigation in a page. The files in the Tabs folder would be: <em>_tabs.scss</em>, <em>tabs.standalone.scss</em>,
+            and <em>tabs.standalone.html</em>.
+        </p>
+        <p>The underscore prefixed file (_tabs.scss) is the component definition. It is the only essential file for the
+            component, the others are optional.<br>
+            Let's look at it in details.
+        </p>
+        <h3 class="mainSection_smallTitle" id="components_definition">Component's definition</h3>
+        <p>The component definition file contains two sets of placeholders
+            named after the component's name, and two mixins. One set is for the component structure, one for
+            the component's skin. Placeholders are wrapped in a <em>define</em> mixin, so that we can import the
+            component from anywhere without any risk of having our placeholders duplicated in the final css.
+        </p>
+        <p>Here's the <em>structure</em> part of our "tabs" component :</p>
+
+        <div class="sample">
+            <ul class="sampleHeader">
+                <li class="sampleHeader_item _is_current">
+                    <span class="sampleHeader_link">// components/tabs/_tabs.scss</span>
+                </li>
+            </ul>
+<pre class="codeSample">
+@import 'sass/base/utils/__utils';
+
+// _____ STRUCTURE _____ //
+
+// define component placeholders for component contents (no selector here except for component's id)
+@include define('tabs') {
+
+%tabs {
+list-style: none;
+padding: 0;
+margin: 0;
+font-size: 0;
+display: inline-block;
+}
+
+%tabs_item{
+@include remIt(font-size, 18);
+padding: 10px 0;
+display: inline-block;
+vertical-align: bottom;
+}
+
+%tabs_link {
+padding: 0 10px;
+}
+
+}
+
+
+// map the placeholders content to some selectors through a mixin
+@mixin tabs($selector, $defaultSkin: true) {
+
+#{$selector} {
+@extend %tabs;
+}
+
+#{$selector}_item {
+@extend %tabs_item;
+}
+
+#{$selector}_link {
+@extend %tabs_link;
+}
+
+
+
+@if $defaultSkin != false {
+@include tabs-skin-default($selector);
+}
+
+}
+</pre>
+
+
+        <p>Don't worry about the id selector for now, we'll get back to it in the "standalone component" chapter.</p>
+        <p>First, the component imports 'sass/base/utils/__utils', which will give it access to the default
+            mixins and helpers. Thanks to the <em>define</em> mixin, all components can safely import this folder.
+        </p>
+        <p>Then, a bunch of placeholders are defined, wrapped in a <em>define</em> mixin so that they can safely be imported
+            by subComponents if needed. They are the core of the component, and define what needs to be implemented
+            on the various classes or states of the component.<p>
+        <p>Below the defined wrapped placeholders is a mixin named after the component. Its role is to
+            actually bind the components placeholders to the provided classname, its "elements", and its state.
+        </p>
+        <p>By default, the component binding will also implement the default skin. If we have defined another
+            skin, all we need to do is pass "$defaultSkin: false" when instantiating the component, and
+            call another skin binding mixin to handle the component's skin.
+        </p>
+        <p class="note">We said earlier that a component folder may have subfolders. One of those is a "_skins"
+            folder that would host different skins that we could import as needed. The other possible folders
+            are subComponents folders, that would extend the component. The "_skins" folder is prefixed by an underscore only
+            so that it always show on top of the list, instead of appearing among the subComponents folders.
+        </p>
+        <p>Now let's look at the <em>skin</em> part of our "tabs" component :
+        </p>
+        <samp class="sampleTitle">// A component's skin part</samp>
+<pre class="codeSample">
+// _____ SKIN _____ //
+@import 'sass/base/project/_variables';
+@import 'sass/base/project/_helpers';
+
+
+// define component placeholders for component skin (no selector here)
+@include define('tabs-skin-default') {
+
+%tabs-skin-default__item {
+border-bottom: solid 3px transparent;
+}
+
+%tabs-skin-default__item_current {
+border-bottom: solid 3px $color-green;
+}
+
+%tabs-skin-default__item_hover {
+border-bottom: solid 3px $color-green-light;
+}
+
+
+%tabs-skin-default__link {
+border-left: solid 1px $color-green;
+text-decoration: none;
+color: $color-green;
+}
+
+%tabs-skin-default__link_first {
+border-left: inherit;
+}
+
+%tabs-skin-default__item_hover_link {
+color: $color-green-light;
+}
+
+%tabs-skin-default__item_current_link {
+color: $color-green-light;
+}
+
+%tabs-skin-default__item_highlighted {
+color: $color-grey-dark;
+}
+
+}
+
+// provide a default skin for the component
+// only visual changes that don't affect the component layout should be in here
+@mixin tabs-skin-default($selector) {
+
+#{$selector}_item {
+
+@extend %tabs-skin-default__item;
+
+&amp;._is_current {
+@extend %tabs-skin-default__item_current;
+}
+
+&amp;:hover {
+@extend %tabs-skin-default__item_hover;
+}
+
+
+}
+
+#{$selector}_link {
+
+@extend %tabs-skin-default__link;
+
+#{$selector}_item:first-child &amp; {
+@extend %tabs-skin-default__link_first;
+}
+
+&amp;:hover {
+@extend %tabs-skin-default__item_hover_link;
+}
+
+#{$selector}_item#{'--highlighted'} &amp; {
+@extend %tabs-skin-default__item_highlighted;
+}
+
+#{$selector}_item._is_current &amp; {
+@extend %tabs-skin-default__item_current_link;
+}
+}
+
+}
+</pre>
+
+        <p>As you can see, it is very close to the structure part. Actually it is placed inside the component's
+            folder for simplicity, but it could very well reside in a _skins folder right away.
+        </p>
+        <p>As the "skin" part of the component is usually project related, it makes sense that it imports
+            the _variables and _helpers files. This is only a requirement when generating standalone CSS, as those
+            files would be already imported from the custom.scss file in the context of your project.
+        </p>
+        <p class="note">We recommend that the "structure" part of the component doesn't make use of any
+            project variable in order to stay as generic and reusable as possible.<br>
+            Usually that is not a problem, but if for some reason you need to import the project variables anyhow for you
+            component structure,
+            you're just one @import away.
+        </p>
+        <p class="note">As stated before, a component's "structure" should only contain it's layout, it's skeleton.
+            The "skin" part, unlike the structure, should
+            <em>only
+                contain</em> rules that <em>don't affect</em> the structure. These rules can be
+            background-colors,
+            background-images, border-radius, shadows, opacity... Anything you want as long as it doesn't
+            fiddle with the component's external boundaries.<br>
+            It is not always easy, but the more you practice it
+            the
+            more it feels natural, and the easier it is to find out the right place when you come back to adjust
+            something about your component.
+        </p>
+        <h3 class="mainSection_smallTitle" id="components_implementation">Implementation</h3>
+        <p>Now that we know how a component is structured, it's time to implement it.
+            This is done by calling the component mixin and passing it a class selector.
+        </p>
+        <p>Here's what an implementation may look like :</p>
+        <samp class="sampleTitle">// in specifics/_main.scss</samp>
+<pre class="codeSample">
+@include tabs('.mainMenu');
+</pre>
+        <p>That's right, now that you have defined your component, using it is as easy as that!</p>
+        <p>And here is what the output css will look like :</p>
+
+
+
+
+        <samp class="sampleTitle">// in css/custom.css</samp>
+<pre class="codeSample">
+.mainMenu {
+list-style: none;
+padding: 0;
+margin: 0;
+font-size: 0;
+display: inline-block;
+}
+
+.mainMenu_item {
+font-size: 18px;
+padding: 10px 0;
+display: inline-block;
+vertical-align: bottom;
+}
+.cssremunit .mainMenu_item {
+font-size: 1.125rem;
+}
+
+.mainMenu_link {
+padding: 0 10px;
+}
+
+
+.mainMenu_item {
+border-bottom: solid 3px transparent;
+}
+
+.mainMenu_item._is_current {
+border-bottom: solid 3px #449888;
+}
+
+.mainMenu_item:hover {
+border-bottom: solid 3px #5cbcaa;
+}
+
+.mainMenu_link {
+border-left: solid 1px #449888;
+text-decoration: none;
+color: #449888;
+}
+
+.mainMenu_item:first-child .mainMenu_link {
+border-left: inherit;
+}
+
+.mainMenu_link:hover {
+color: #5cbcaa;
+}
+
+.mainMenu_item._is_current .mainMenu_link {
+color: #5cbcaa;
+}
+
+.mainMenu_item--highlighted .mainMenu_link {
+color: #333333;
+}
+</pre>
+        <p>If later on you need to bind the tabs component to another class, all you have to do is to call the mixin
+            with that class and the parameters you want, and you're done!
+        </p>
+        <p>For example :</p>
+        <samp class="sampleTitle">// in specifics/_main.scss</samp>
+<pre class="codeSample">
+@include tabs('.articleTabs', $defaultSkin: false);
+@include tabs-skin-alternate('.articleTabs');
+</pre>
+        <h2 class="mainSection_subtitle" id="components_standalone">Standalone component</h2>
+        <p>The _tabs.scss file is really the only one needed for your component, as long as it includes a skin
+            for the component. But there are two other files that we presented earlier : <em>tabs.standalone.scss</em>
+            and <em>tabs.standalone.html</em>.<br>
+            Those are here to provide a version of the component already bound to a classname, and
+            an html template describing what the associated markup should look like.<br>
+            As the tabs.standalone.scss file isn't prefixed with an underscore, it will get rendered by Sass into a .css file.
+            This can be useful when you want some javascript to dynamically instantiate a component and load
+            its associated CSS, instead of providing the component's CSS along with the main stylesheet.
+        </p>
+        <div class="exampleNote">
+            <p>Here's what the standalone scss file would look like for our tabs example :</p>
+            <samp class="sampleTitle">// tabs.standalone.scss</samp>
+<pre class="codeSample">
+@import '_tabs.scss';
+
+#docssaComponent__tabs-dynamicTabs {
+content: 'loaded';
+}
+
+@include tabs('.dynamicTabs');
+</pre>
+
+            <p>As you can see, we use an id in the standalone version of the component. It is intended
+                for load detection : <br>when dynamically loading components from javaScript, you should
+                first
+                check if it hasn't already been loaded from some other place, and only load it if
+                required.<br>
+                We recommend using the component name, separated by a dash from the classname it is
+                bound to,
+                and prefixed by <em>#docssaComponent</em>. <br>
+                This way you'll know what you're dealing with,
+                and avoid collision with other CSS selectors.</p>
+        </div>
+
+
+        <p>Each component folder should also contain a standalone version and a HTML example, so
+            that fellow developers
+            know what is the expected structure HTML-wise and can test the result easily.<br>
+            Components need a structure to apply on. If they didn't, a placeholder helper would be
+            enough.<br>
+            It can be really useful to maintain a project Style Guide, including every component
+            standalone as a reference.
+        </p>
+
+        <div class="exampleNote">
+            <p>Here's what the html sample file may look like for our tabs example :</p>
+
+            <samp class="sampleTitle">// tabs.standalone.html</samp>
+<pre class="codeSample">
+&lt;ul class="dynamicTabs"&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent1"&gt;tabContent1&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent2"&gt;tabContent2&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent3"&gt;tabContent3&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent4"&gt;tabContent4&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent5"&gt;tabContent5&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="dynamicTabs_item"&gt;
+&lt;a class="dynamicTabs_link" href="#tabContent6"&gt;tabContent6&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+        </div>
+    </div>
+</section>

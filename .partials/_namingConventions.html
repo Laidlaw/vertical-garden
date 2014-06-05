@@ -1,0 +1,204 @@
+<section class="mainSection" id="namingConventions">
+
+    <header class="mainSection_header">
+        <h1 class="mainSection_title">Naming conventions</h1>
+    </header>
+
+    <div class="mainSection_body">
+        <h2 class="mainSection_subtitle">HTML classes</h2>
+
+        <p>In DoCSSa, we decided to follow BEM class naming convention.<br>
+            HTML class names for <em>Blocks</em> are lowerCamelCase, and the <em>Elements</em> nested
+            within are separated by
+            an underscore(_). <em>Modifiers</em> are separated by a double dash(--), and they are used
+            for elements
+            <em>variants</em>. An element's <em>state</em> is written separately with a pattern that
+            begins with "_is_".
+        </p>
+
+        <p class="note">
+            <em>Variants</em> are dissociated from <em>states</em> because they play a different role,
+            and it appeared
+            that with our components architecture, having a simple "_is_current" class for our items'
+            "current" state was
+            way more
+            effective than a "mainMenu_item--current" when it came to modifying the state through
+            javascript.<br>
+            BEM modifiers are now exclusively used for visual variants that don't change over time. For
+            example,
+            if a tab needs to be highlighted so that it stand out, it is applied a variant.<br>
+            By opposition, a "state" is something that is supposed to be handled by javascript and
+            change over time.
+        </p>
+
+        <div class="exampleNote">
+            <p>Here is an example of what that convention may look like in our tab example :</p>
+            <samp class="sampleTitle">// naming example</samp>
+<pre class="codeSample">
+&lt;nav class="mainNav"&gt;
+&lt;ul class="mainMenu"&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#"&gt;Home&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#about"&gt;About&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#fileStructure"&gt;File Structure&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#components"&gt;Components&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item _is_current"&gt;
+&lt;a class="mainMenu_link" href="#namingConventions"&gt;Naming conventions&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#responsive"&gt;Responsive&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item"&gt;
+&lt;a class="mainMenu_link" href="#gettingStarted"&gt;Getting started&lt;/a&gt;
+&lt;/li&gt;
+&lt;li class="mainMenu_item mainMenu_item--highlighted"&gt;
+&lt;a class="mainMenu_link" href="#contributing"&gt;Contributing&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav>
+</pre>
+            Note that this example is taken from the menu you're looking at just now in the present
+            page.
+        </div>
+        <p>At first, the BEM notation style can seem quite verbose and put off some developers, but it
+            is very
+            powerful and allows us to go way behind old school naming conventions.<br>
+            It has to be tamed, though, and a classic beginner's mistake is to reflect the position of
+            each
+            element in the component's DOM in its class name. To avoid that, we recommend that you look
+            at your
+            low level elements first (those deeper in the DOM tree) and wonder if they could exist
+            elsewhere in the page
+            or in the component.
+            Going up the tree, you can identify your most basic reusable components and set the names
+            accordingly.
+        </p>
+
+        <p class="exampleNote">
+            For example, in our example above, the "mainMenu_link" class doesn't need to reflect the
+            fact that it
+            is contained in a "mainMenu_item", this doesn't really matter to the link, so there is no
+            reason to
+            specify it in its name.
+        </p>
+
+        <h2 class="mainSection_subtitle">Sass files</h2>
+
+        <p>We talked about some of the aspects of the Sass file naming convention in the "File
+            Structure" section.</p>
+
+        <p>Each file is lowerCamelCase named and prefixed by an underscore(_) so that it is considered
+            by the Sass compiler
+            as a partial and
+            not rendered to a standalone CSS file. The only exception to this rule is the components'
+            standalone
+            versions (see the "Components" section for details about this).
+        </p>
+
+        <p>
+            Each folder has a single entry point in charge of importing other partial Sass files. This
+            file is
+            named after the folder's name, and is prefixed with two underscores(__) so that it always
+            appears on top
+            in the files list. It imports only the files in its own folder, except for other summary
+            index located in
+            a direct subfolder. This way, you always can handle your imports very easily and stop the
+            imports
+            of nested files at any level.<br>
+            Components definition files should have the same name as the component's folder name, and
+            have a
+            single underscore prefix.
+        </p>
+
+        <h2>Sass contents</h2>
+
+        <p>For placeholders, used in the _helpers files or the components definitions, we recommend a
+            mix of lowerCamelCase,
+            dashes(-) and underscores(_). Helpers and components prefix should stick to lowerCamelCase,
+            while components
+            placeholders should include the component's prefix and separate sub parts from it with a
+            dash or underscore.
+            Sass treats dashes and underscores as if they were the same character, so they are totally
+            invertible.
+        </p>
+
+        <p class="note">
+            Note that those are only guidelines, and if for any reason you prefer to go with another
+            convention
+            in your project, you're free to do so. HTML classes and file names conventions have a
+            rationale behind
+            them which offers you some advantages, but for the sass files contents it's really just a
+            matter of
+            preference. We offer a suggestion only to provide some common ground for DoCSSa users.
+        </p>
+
+        <div class="exampleNote">
+            <p>For example, you could pass ".myExampleClass" as a selector to a component mixin for an
+                implementation that
+                would look like this :
+            </p>
+            <samp class="sampleTitle">// example</samp>
+<pre class="codeSample">
+#{$selector} {
+@extend %componentName;
+}
+#{$selector}__singleItem {
+@extend %componentName__singleItem
+&amp;:hover {
+@extend %componentName__singleItem-altState
+}
+}
+</pre>
+        </div>
+        <h2>SASS variables</h2>
+
+        <p>Sass variable names should be composed of dash(-) separated parts, with each part sorted from
+            the most
+            generic to the most specific variable characteristic. This is quite useful in most IDE as
+            you can take
+            advantage of autocompletion.
+        </p>
+
+        <div class="exampleNote">
+            <p>For example :</p>
+            <samp class="sampleTitle">// variables example</samp>
+<pre class="codeSample">
+/* _____ VARIABLES _____ */
+
+// Generic
+// ==========================================================================
+
+$default-borderRadius: 4px;
+
+$containerWidth: 760px;
+
+$variant: 'base';
+
+
+// Colors
+// ==========================================================================
+
+$color-default-black: #000;
+$color-default-white: #fff;
+
+$color-green: #449888;
+$color-green-light: #5cbcaa;
+$color-green-lighter: #a8d5cd;
+$color-pink: #ee746f;
+$color-grey-dark: #333;
+$color-beige-dark: #c2c0bc;
+$color-beige: #f1ede4;
+$color-beige-light: #f8f5ec;
+
+$color-code: #637c84;
+</pre>
+        </div>
+    </div>
+</section>
