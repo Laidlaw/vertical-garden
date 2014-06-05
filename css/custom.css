@@ -8,6 +8,7 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+/* line 9, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 html {
   font-family: sans-serif;
   /* 1 */
@@ -19,6 +20,7 @@ html {
 /**
  * Remove default margin.
  */
+/* line 19, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 body {
   margin: 0; }
 
@@ -27,6 +29,7 @@ body {
 /**
  * Correct `block` display not defined in IE 8/9.
  */
+/* line 30, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 article,
 aside,
 details,
@@ -45,6 +48,7 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
+/* line 50, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -58,6 +62,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
+/* line 63, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0; }
@@ -66,6 +71,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9.
  * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
+/* line 73, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 [hidden],
 template {
   display: none; }
@@ -75,12 +81,14 @@ template {
 /**
  * Remove the gray background color from active links in IE 10.
  */
+/* line 85, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 a {
   background: transparent; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
+/* line 93, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 a:active,
 a:hover {
   outline: 0; }
@@ -90,12 +98,14 @@ a:hover {
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
+/* line 105, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted; }
 
 /**
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
+/* line 113, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 b,
 strong {
   font-weight: bold; }
@@ -103,6 +113,7 @@ strong {
 /**
  * Address styling not present in Safari 5 and Chrome.
  */
+/* line 122, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 dfn {
   font-style: italic; }
 
@@ -110,6 +121,7 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
+/* line 131, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
@@ -117,6 +129,7 @@ h1 {
 /**
  * Address styling not present in IE 8/9.
  */
+/* line 140, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 mark {
   background: #ff0;
   color: #000; }
@@ -124,12 +137,14 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
+/* line 149, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 small {
   font-size: 80%; }
 
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
+/* line 157, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -137,9 +152,11 @@ sup {
   position: relative;
   vertical-align: baseline; }
 
+/* line 165, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 sup {
   top: -0.5em; }
 
+/* line 169, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 sub {
   bottom: -0.25em; }
 
@@ -148,12 +165,14 @@ sub {
 /**
  * Remove border when inside `a` element in IE 8/9.
  */
+/* line 180, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 img {
   border: 0; }
 
 /**
  * Correct overflow displayed oddly in IE 9.
  */
+/* line 188, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 svg:not(:root) {
   overflow: hidden; }
 
@@ -162,12 +181,14 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari 5.
  */
+/* line 199, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 figure {
   margin: 1em 40px; }
 
 /**
  * Address differences between Firefox and other browsers.
  */
+/* line 207, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -176,12 +197,14 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
+/* line 217, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 pre {
   overflow: auto; }
 
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
+/* line 225, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 code,
 kbd,
 pre,
@@ -201,6 +224,7 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
+/* line 248, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button,
 input,
 optgroup,
@@ -216,6 +240,7 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10.
  */
+/* line 262, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button {
   overflow: visible; }
 
@@ -225,6 +250,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8+, and Opera
  * Correct `select` style inheritance in Firefox.
  */
+/* line 273, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button,
 select {
   text-transform: none; }
@@ -236,6 +262,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
+/* line 286, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -248,6 +275,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
+/* line 298, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default; }
@@ -255,6 +283,7 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
+/* line 307, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -264,6 +293,7 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
+/* line 318, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 input {
   line-height: normal; }
 
@@ -274,6 +304,7 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
+/* line 330, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -286,6 +317,7 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
+/* line 342, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
@@ -295,6 +327,7 @@ input[type="number"]::-webkit-outer-spin-button {
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
  *    (include `-moz` to future-proof).
  */
+/* line 353, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -308,6 +341,7 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
+/* line 366, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
@@ -315,6 +349,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Define consistent border, margin, and padding.
  */
+/* line 375, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -324,6 +359,7 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
+/* line 386, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 legend {
   border: 0;
   /* 1 */
@@ -333,6 +369,7 @@ legend {
 /**
  * Remove default vertical scrollbar in IE 8/9.
  */
+/* line 395, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 textarea {
   overflow: auto; }
 
@@ -340,6 +377,7 @@ textarea {
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
+/* line 404, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 optgroup {
   font-weight: bold; }
 
@@ -348,10 +386,12 @@ optgroup {
 /**
  * Remove most spacing between table cells.
  */
+/* line 415, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* line 420, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/vendor/_normalize.scss */
 td,
 th {
   padding: 0; }
@@ -363,30 +403,40 @@ th {
 /* _____ SYSTEM TOOLS _____ */
 /* _____ MIXINS _____ */
 /* _____ UNIVERSAL HELPERS _____ */
+/* line 101, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
 .articleSeparator {
   display: none !important;
   visibility: hidden; }
 @media (min-width: 900px) {
+  /* line 89, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
   .c, .d {
     *zoom: 1; }
+    /* line 65, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
     .c:before, .d:before, .c:after, .d:after {
       content: " ";
       display: table; }
+    /* line 70, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
     .c:after, .d:after {
       clear: both; } }
 @media (min-width: 1200px) {
+  /* line 89, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
   .e {
     *zoom: 1; }
+    /* line 65, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
     .e:before, .e:after {
       content: " ";
       display: table; }
+    /* line 70, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
     .e:after {
       clear: both; } }
+/* line 101, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
 .mainContainer, .repoWrapper, .a, .b, .e, .sampleHeader {
   *zoom: 1; }
+  /* line 65, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
   .mainContainer:before, .repoWrapper:before, .a:before, .b:before, .e:before, .sampleHeader:before, .mainContainer:after, .repoWrapper:after, .a:after, .b:after, .e:after, .sampleHeader:after {
     content: " ";
     display: table; }
+  /* line 70, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_helpers.scss */
   .mainContainer:after, .repoWrapper:after, .a:after, .b:after, .e:after, .sampleHeader:after {
     clear: both; }
 /* ===== PROJECT ===== */
@@ -417,6 +467,7 @@ th {
   font-weight: bold;
   font-style: normal; }
 /* _____ GLOBAL DEFAULTS _____ */
+/* line 6, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 *,
 :before,
 :after {
@@ -424,11 +475,13 @@ th {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+/* line 14, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 html {
   font-size: 100%;
   width: 100%;
   height: 100%; }
 
+/* line 20, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 body {
   font-size: 16px;
   line-height: 1.4;
@@ -437,10 +490,13 @@ body {
   width: 100%;
   color: #000;
   min-height: 100%; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit body {
     font-size: 1rem; }
+  /* line 222, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .no-cssgradients body {
     background-color: #50aa99; }
+  /* line 230, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssgradients body {
     background: -moz-radial-gradient(center, ellipse cover, #5cbcaa 0%, #449888 100%) fixed;
     /* FF3.6+ */
@@ -455,26 +511,32 @@ body {
     background: radial-gradient(ellipse at center, #5cbcaa 0%, #449888 100%) fixed;
     /* W3C */ }
 
+/* line 47, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 ul {
   list-style: square; }
 
+/* line 51, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 pre {
   background: #fff;
   padding: 10px; }
 
+/* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 p {
   margin: 0 0 20px; }
 
 /* _____ LAYOUT _____ */
+/* line 62, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_globals.scss */
 .mainContainer {
   width: 100%;
   max-width: 760px;
   margin: 0 auto; }
 
 /* _____ PROJECT HELPERS _____ */
+/* line 101, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
 .mainMenu_link, .sampleHeader_link, .navLink, .externalLink {
   color: #449888;
   text-decoration: none; }
+  /* line 10, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/project/_helpers.scss */
   .mainMenu_link:hover, .sampleHeader_link:hover, .navLink:hover, .externalLink:hover {
     color: #5cbcaa;
     text-decoration: underline; }
@@ -485,6 +547,7 @@ p {
 /* _____ SYSTEM TOOLS _____ */
 /* _____ MIXINS _____ */
 @media (min-width: 900px) {
+  /* line 89, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
   .mainMenu {
     list-style: none;
     padding: 0;
@@ -492,14 +555,17 @@ p {
     font-size: 0;
     display: inline-block; } }
 @media (min-width: 900px) {
+  /* line 89, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
   .mainMenu_item {
     font-size: 18px;
     padding: 10px 0;
     display: inline-block;
     vertical-align: bottom; }
+    /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
     .cssremunit .mainMenu_item {
       font-size: 1.125rem; } }
 @media (min-width: 900px) {
+  /* line 89, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_system.scss */
   .mainMenu_link {
     padding: 0 10px; } }
 /* _____ VARIABLES _____ */
@@ -524,35 +590,44 @@ usage examples:
 @include example-skin-alt('.example5');
 */
 /* **** EXAMPLE COMPONENT **** */
+/* line 22, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example, .example2, .example3, .example4, .example5, .example6 {
   padding: 10px; }
 
+/* line 26, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example_inner, .example2_inner, .example3_inner, .example4_inner, .example5_inner, .example6_inner {
   padding: 20px; }
 
+/* line 29, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example:hover, .example2:hover, .example3_myHoverClass, .example4_myHover, .example5:hover, .example6:hover {
   padding: 30px; }
 
 /* **** EXAMPLE COMPONENT SKIN **** */
+/* line 98, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example, .example2, .example3, .example4, .example6 {
   background: #eee;
   color: blue; }
 
+/* line 103, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example_inner, .example2_inner, .example3_inner, .example4_inner, .example6_inner {
   color: red; }
 
+/* line 106, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_example.scss */
 .example:hover, .example2:hover, .example3_myHoverClass, .example4_myHover, .example6:hover {
   border: solid 1px red; }
 
 /* **** EXAMPLE COMPONENT SKIN ALT **** */
+/* line 6, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_skins/_alt.scss */
 .example5 {
   background: #fff;
   color: green; }
 
+/* line 11, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_skins/_alt.scss */
 .example5_inner {
   color: orange;
   background: #eee; }
 
+/* line 15, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/components/example/_skins/_alt.scss */
 .example5:hover {
   border: solid 1px purple;
   background: blue; }
@@ -561,6 +636,7 @@ usage examples:
 ========== SPECIFICS
 */
 /* _____ SPECIFICS _____ */
+/* line 1, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_buttons.scss */
 .navOpener {
   display: block;
   position: absolute;
@@ -573,16 +649,20 @@ usage examples:
   background: #449888;
   border: 1px solid white;
   z-index: 998; }
+  /* line 94, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .boxshadow .navOpener {
     -webkit-box-shadow: none;
     box-shadow: none; }
+  /* line 260, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .csstransitions .navOpener {
     -webkit-transition: left .2s linear;
     -moz-transition: left .2s linear;
     -o-transition: left .2s linear;
     transition: left .2s linear; }
+  /* line 16, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_buttons.scss */
   ._nav_is_open .navOpener {
     left: 246px; }
+  /* line 20, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_buttons.scss */
   .navOpener:before {
     content: '☰';
     width: 28px;
@@ -590,9 +670,11 @@ usage examples:
     line-height: 1.8;
     display: block;
     text-align: center; }
+    /* line 28, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_buttons.scss */
     ._nav_is_open .navOpener:before {
       content: '☓'; }
 
+/* line 34, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_buttons.scss */
 .goTop {
   position: fixed;
   padding: 0;
@@ -606,10 +688,12 @@ usage examples:
   background: transparent;
   text-align: center;
   z-index: 0; }
+  /* line 94, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .boxshadow .goTop {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
+/* line 1, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .mainFooter {
   position: fixed;
   bottom: 0;
@@ -620,13 +704,16 @@ usage examples:
   background: #449888;
   z-index: 10; }
 
+/* line 11, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .mainFooterLink {
   color: #333333;
   text-decoration: none; }
+  /* line 14, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
   .mainFooterLink:hover {
     text-decoration: underline;
     color: white; }
 
+/* line 20, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .mainFooterIconLink, .repoWrapper_link {
   display: block;
   width: 22px;
@@ -634,28 +721,34 @@ usage examples:
   float: right;
   margin: 2px 5px; }
 
+/* line 29, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .repoWrapper {
   width: 255px;
   list-style: none;
   margin: 10px auto; }
 
+/* line 36, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .repoWrapper_item {
   float: left; }
 
+/* line 40, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .repoWrapper_iframe {
   margin-bottom: -6px; }
 
+/* line 44, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
 .repoWrapper_link {
   background: url("../assets/img/github.png") center no-repeat;
   font-size: 0; }
 
 @media (min-width: 900px) {
+  /* line 51, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_footer.scss */
   .repoWrapper {
     position: absolute;
     right: 10px;
     top: 3px;
     margin: 0;
     width: auto; } }
+/* line 2, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainHeader {
   position: fixed;
   top: 50%;
@@ -663,6 +756,7 @@ usage examples:
   text-align: center;
   color: white;
   z-index: 10; }
+  /* line 291, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .csstransforms .mainHeader {
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -670,59 +764,76 @@ usage examples:
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
+/* line 12, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainTitle {
   font-family: 'robotoSlab', georgia, serif;
   font-weight: normal;
   margin: 0 0 10px;
   font-size: 70px;
   line-height: 75px; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .mainTitle {
     font-size: 4.375rem; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .mainTitle {
     line-height: 4.6875rem; }
+  /* line 110, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .textshadow .mainTitle {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
 
+/* line 20, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSubtitle {
   margin: 0;
   font-weight: normal; }
+  /* line 110, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .textshadow .mainSubtitle {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
 
+/* line 27, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainContent {
   margin: 65px 0 50px; }
 
+/* line 32, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .js .mainSection {
   display: none; }
 
+/* line 35, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .js .mainSection._is_current {
   display: block; }
 
+/* line 43, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSection_body {
   padding: 10px 40px;
   background: white; }
 
+/* line 48, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSection_header {
   padding: 10px 40px;
   background: #a8d5cd; }
 
+/* line 53, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSection_title {
   font-weight: normal;
   color: #449888;
   font-size: 26px;
   line-height: 30px; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .mainSection_title {
     font-size: 1.625rem; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .mainSection_title {
     line-height: 1.875rem; }
 
+/* line 59, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSection_subtitle {
   margin-top: 30px;
   margin-bottom: 20px; }
 
+/* line 64, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_main.scss */
 .mainSection_smallTitle {
   margin-top: 80px; }
 
+/* line 3, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
 .mainNav {
   position: absolute;
   width: 200px;
@@ -731,49 +842,62 @@ usage examples:
   left: -200px;
   background: white;
   z-index: 999; }
+  /* line 260, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .csstransitions .mainNav {
     -webkit-transition: left .2s linear;
     -moz-transition: left .2s linear;
     -o-transition: left .2s linear;
     transition: left .2s linear; }
+  /* line 94, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .boxshadow .mainNav {
     -webkit-box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3);
     box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3); }
+  /* line 14, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
   ._nav_is_open .mainNav {
     left: 0; }
 
+/* line 19, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
 .mainMenu {
   list-style: none;
   padding: 0; }
 
+/* line 24, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
 .mainMenu_item {
   padding: 20px;
   border-bottom: 1px solid #a8d5cd; }
 
+/* line 29, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
 .mainMenu_link {
   color: #333333; }
+  /* line 33, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_nav.scss */
   ._is_current .mainMenu_link {
     color: #5cbcaa; }
 
 @media (min-width: 900px) {
+  /* line 9, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
   .mainMenu_item {
     border: none;
     padding: 0;
     line-height: 2.5; }
+    /* line 14, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
     .mainMenu_item._is_current {
       border-bottom: 3px solid #5cbcaa; }
 
+  /* line 19, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
   .mainMenu_item:first-child .mainMenu_link {
     border-left: none; }
 
+  /* line 23, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
   .mainMenu_link {
     text-decoration: none;
     color: #333333;
     border-left: 1px solid #449888; }
 
+  /* line 31, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
   .navOpener {
     display: none; }
 
+  /* line 35, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_responsiveNav.scss */
   .mainNav {
     position: fixed;
     width: auto;
@@ -785,20 +909,25 @@ usage examples:
     text-align: right;
     opacity: 0.95;
     filter: alpha(opacity=95); }
+    /* line 94, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
     .boxshadow .mainNav {
       -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.3);
       box-shadow: 0 3px 5px rgba(0,0,0,.3); } }
+/* line 2, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .sampleHeader {
   list-style: none;
   padding: 0;
   margin: 0; }
 
+/* line 9, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .sampleHeader_item {
   float: left;
   background: #f1ede4; }
+  /* line 13, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
   .sampleHeader_item._is_current {
     background: #f8f5ec; }
 
+/* line 18, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .sampleHeader_link {
   border: none;
   background: transparent;
@@ -806,14 +935,17 @@ usage examples:
   padding: 10px;
   display: block; }
 
+/* line 27, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .sampleHeader_item._is_current .sampleHeader_link {
   color: black; }
 
+/* line 31, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .sampleTitle {
   background: #f1ede4;
   display: inline-block;
   padding: 5px 20px; }
 
+/* line 37, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
 .codeSample {
   background: #f8f5ec;
   border: solid 1px #f1ede4;
@@ -822,40 +954,50 @@ usage examples:
   color: #637c84;
   font-size: 14px;
   line-height: 1.3; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .codeSample {
     font-size: 0.875rem; }
+  /* line 46, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/_sample.scss */
   .codeSample._is_hidden {
     display: none; }
 
+/* line 22, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .firstOrderList_item {
   list-style-type: square;
   color: #ee746f; }
 
+/* line 26, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .firstOrderList_item_content {
   color: black; }
 
+/* line 30, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .secondaryList_item {
   list-style-type: square;
   color: #ee746f; }
 
+/* line 34, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .secondaryList_item_content {
   color: black; }
 
+/* line 42, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .note {
   padding: 15px;
   border: solid 1px rgba(168, 213, 205, 0.3);
   background: rgba(168, 213, 205, 0.2); }
 
+/* line 48, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .exampleNote {
   padding: 15px;
   border: dotted 1px #ee746f;
   margin-bottom: 15px; }
 
+/* line 54, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .sampleTitle {
   background: #f1ede4;
   display: inline-block;
   padding: 5px 20px; }
 
+/* line 59, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/specifics/__specifics.scss */
 .codeSample {
   background: #f8f5ec;
   border: solid 1px #f1ede4;
@@ -864,5 +1006,6 @@ usage examples:
   color: #637c84;
   font-size: 14px;
   line-height: 1.3; }
+  /* line 56, ../../../../../../Users/alanlaidlaw/Home/learning-css/vertical-garden/sass/base/utils/_mixins.scss */
   .cssremunit .codeSample {
     font-size: 0.875rem; }

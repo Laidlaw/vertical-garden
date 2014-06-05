@@ -22,5 +22,6 @@
     "normalize-scss": "~3.0.1",
     "typeahead.js": "~0.10.2",
     "jquery-waypoints": "~2.0.5"
+
   }
 }
